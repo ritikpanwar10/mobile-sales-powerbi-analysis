@@ -1,22 +1,31 @@
 # mobile-sales-powerbi-analysis
 Interactive Power BI dashboard analyzing smartphone sales performance, revenue trends, brand market share, and regional metrics using DAX and Power Query.
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Part 1: Data Transformation (Power Query)](#part-1-data-transformation-power-query)
+  - [Key Goals](#key-goals)
+  - [Step-by-Step Guide](#%EF%B8%8F-step-by-step-transformation-process)
+- [Part 2: Dashboard UI Design](#part-2-dashboard-ui-design)
+  - [Key Goals](#key-goals-1)
+  - [Step-by-Step Guide](#step-by-step-implementation)
 ## Prerequisites
 
 - **Power BI Desktop** installed
-- Mobile Sales Data.xlsx file
-- **Microsoft PowerPoint** (used for color picking)
-- Brand asset file (e.g., `vivo-logo.png`)
+- **Dataset:** Mobile Sales Data.xlsx
+- **Assets:** Brand logo file (e.g., vivo-logo.png)
+- **Tools:** Microsoft PowerPoint (for color picking)
 
-# Part 1 : Mobile Sales Data Transformation in Power BI (Power Query)
-This demonstrates how to import and transform a raw Excel dataset using **Power Query** in **Power BI Desktop**. It walks through cleaning split date attributes, combining them into a unified date format, and standardizing day names.
+
+# Part 1: Data Transformation (Power Query)
+Clean split date attributes, combine them into a unified date column, and standardize day names 
 
 ---
-
-**Key Goals:**
-- Import specific worksheet data (`Sheet1`) from an Excel workbook.
-- Merge separate `Day`, `Month`, and `Year` values into a proper `Date` column.
-- Normalize weekday names so each record uses the full name format (e.g., `Saturday`, `Sunday`).
+### Key Goals
+- Import Sheet1 from the raw Excel workbook.
+- Merge separated Day, Month, and Year values into a single Date column.
+- Normalize weekday names into full spelling (e.g., Saturday, Sunday)
 
 ---
 
@@ -107,9 +116,15 @@ This demonstrates how to import and transform a raw Excel dataset using **Power 
 
 ---
 
-# Part 2 : Power BI Dashboard UI Design Guide
+# Part 2: Dashboard UI Design
+Set up brand styling by extracting brand colors, setting the canvas background, and creating card containers. 
 
-Styling a custom Power BI dashboard by importing brand assets, extracting brand colors using PowerPoint, setting up canvas themes, and layering background card elements.
+--- 
+### Key Goals
+
+* Logo se exact brand color sample karke uska HEX code extract karna.
+* Custom brand color ko Power BI canvas background par apply karna (0% transparency ke sath).
+* Visual appeal badhane ke liye logo ke peeche ek clean rounded white card container layer karna.
 
 ---
 
