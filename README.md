@@ -1,6 +1,13 @@
 # mobile-sales-powerbi-analysis
 Interactive Power BI dashboard analyzing smartphone sales performance, revenue trends, brand market share, and regional metrics using DAX and Power Query.
 
+## Prerequisites
+
+- **Power BI Desktop** installed
+- Mobile Sales Data.xlsx file
+- **Microsoft PowerPoint** (used for color picking)
+- Brand asset file (e.g., `vivo-logo.png`)
+
 # Part 1 : Mobile Sales Data Transformation in Power BI (Power Query)
 This demonstrates how to import and transform a raw Excel dataset using **Power Query** in **Power BI Desktop**. It walks through cleaning split date attributes, combining them into a unified date format, and standardizing day names.
 
@@ -98,6 +105,85 @@ This demonstrates how to import and transform a raw Excel dataset using **Power 
 
 <img width="1913" height="1016" alt="image" src="https://github.com/user-attachments/assets/da0883b6-1e9b-419f-9082-93db9c259bff" />
 
-```
+---
 
-```
+# Part 2 : Power BI Dashboard UI Design Guide
+
+Styling a custom Power BI dashboard by importing brand assets, extracting brand colors using PowerPoint, setting up canvas themes, and layering background card elements.
+
+---
+
+## Step-by-Step Implementation
+
+### Step 1: Insert Logo / Image into Power BI
+
+1. Open your Power BI report and go to the **Insert** tab in the top ribbon.
+2. In the **Elements** group, select **Image**.
+3. In the right-side **Format image** pane:
+   - Expand the **Style** section.
+   - Set **Image source** to `Upload Image`.
+   - Under the **Image** field, click **Browse...**.
+4. Select your file (e.g., `vivo-logo.png`) and click **Open**.
+5. Position and resize the image on your canvas as desired.
+
+<img width="1916" height="976" alt="8" src="https://github.com/user-attachments/assets/0dc619e3-6929-40f7-b59a-56661c341a60" />
+
+---
+
+### Step 2: Extract Brand Hex Code using PowerPoint
+
+To match the dashboard's background color precisely with the logo, extract the exact HEX code:
+
+1. Open **Microsoft PowerPoint**.
+2. Go to **Insert** > **Pictures** and insert the same image/logo.
+3. Go to **Insert** > **Shapes** and add any shape (such as a rectangle or rounded rectangle).
+4. Select the shape:
+   - Click the **Shape Format** tab in the top ribbon (or the floating toolbar).
+   - Click **Shape Fill** > select **Eyedropper**.
+   - Hover and click on the desired color within the logo.
+5. With the shape now filled with the sampled color:
+   - Go back to **Shape Fill** > select **More Fill Colors...**.
+   - Go to the **Custom** tab.
+   - Locate the **Hex** code input field and copy the code (e.g., `#2424ED`).
+
+<img width="1916" height="980" alt="9 1" src="https://github.com/user-attachments/assets/20acacc4-c6be-471d-a0fb-ebbdd0c02059" />
+<img width="1906" height="976" alt="9" src="https://github.com/user-attachments/assets/a56bc990-f5fd-46b2-8c5b-7eb30c225570" />
+<img width="1917" height="1013" alt="11" src="https://github.com/user-attachments/assets/fe01bb66-9adb-4576-9866-052da0c1c7df" />
+<img width="1218" height="667" alt="12" src="https://github.com/user-attachments/assets/d3aeebe6-c21e-4170-9497-9cdbc77bd320" />
+
+---
+
+### Step 3: Apply the Brand Color to Power BI Canvas
+
+1. Return to **Power BI Desktop**.
+2. Deselect all visuals by clicking an empty area on the canvas.
+3. Open the **Visualizations** pane and select the **Format page** icon (paint roller/sheet icon).
+4. Expand the **Canvas background** section:
+   - Click the **Color** swatch dropdown.
+   - Click **More colors...**.
+   - Paste your copied Hex code (e.g., `#2424ED`) into the **Hex** input box.
+   - Set **Transparency** to `0%` to make the color fully visible.
+
+<img width="1918" height="986" alt="13" src="https://github.com/user-attachments/assets/89429617-453e-424e-a6fe-3657a48d0657" />
+<img width="1696" height="662" alt="15" src="https://github.com/user-attachments/assets/4cdd11dc-9b69-4682-aeb7-709f4197e5ab" />
+
+
+---
+
+### Step 4: Add a Rounded Card Container Behind the Logo
+
+1. Go to the **Insert** tab > **Shapes** > choose **Rounded Rectangle**.
+2. Configure the shape styling in the **Format shape** pane:
+   - **Shape**: Set **Rounded Corners** / **Corner radius** to `18%`.
+   - **Style**: Enable fill and set **Fill Color** to `White` (`#FFFFFF`).
+   - Remove or adjust the border outline according to your preference.
+3. Resize and position the rounded white rectangle directly over the logo.
+4. With the rectangle selected:
+   - Go to the top **Format** tab.
+   - Click **Send backward** (or select **Send to back**).
+5. The white rounded card will now sit neatly behind the logo, creating a clean container effect.
+
+<img width="1907" height="990" alt="16 1" src="https://github.com/user-attachments/assets/690b0349-b444-489a-883b-4636836575d6" />
+
+---
+
