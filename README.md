@@ -1,5 +1,7 @@
 # mobile-sales-powerbi-analysis
 Interactive Power BI dashboard analyzing smartphone sales performance, revenue trends, brand market share, and regional metrics using DAX and Power Query.
+<img width="1321" height="740" alt="28 1" src="https://github.com/user-attachments/assets/8428eb0f-6916-45b5-852a-9a38e4729d06" />
+
 
 ## Table of Contents
 
@@ -201,4 +203,198 @@ To match the dashboard's background color precisely with the logo, extract the e
 <img width="1907" height="990" alt="16 1" src="https://github.com/user-attachments/assets/690b0349-b444-489a-883b-4636836575d6" />
 
 ---
+
+# Part3: Mobile Sales Analytics Dashboard (Power BI)
+
+An interactive, end-to-end sales analytics dashboard created in **Power BI Desktop**. This dashboard tracks key performance indicators (KPIs), geographical sales performance, trend analysis over time, payment preferences, and customer rating distributions for mobile device sales.
+
+---
+
+## 🛠️ Key Measures (DAX)
+
+The following custom DAX measures were built to drive the KPI cards and chart visuals:
+
+* **Total Sales:**
+  ```dax
+  Total Sales = SUMX(Sheet1, Sheet1[Units Sold] * Sheet1[Price Per Unit])
+  ```
+* **Total Quantity:**
+  ```dax
+  Total Quantity = SUM(Sheet1[Units Sold])
+  ```
+* **Transactions:**
+  ```dax
+  Transactions = COUNTROWS(Sheet1)
+  ```
+* **Average Price:**
+  ```dax
+  Average = AVERAGE(Sheet1[Price Per Unit])
+  ```
+
+---
+
+## 🚀 Step-by-Step Implementation Guide
+
+### Step 1: Date Hierarchy Slicer (Month Tiles)
+1. Add a background shape container.
+2. Insert a **Slicer** visual and set field to `Date > Date Hierarchy > Month`.
+3. In **Format visual**:
+   * **Layout:** Set arrangement to `Vertical`, style to `Tiles`, and height to `70px`.
+   * **Callout value:** Font set to `Arial Black`, size `24`, transparency `0%`.
+   * **General:** Turn off **Background** and **Title**.
+
+<img width="1916" height="943" alt="17" src="https://github.com/user-attachments/assets/55849154-ea4d-4f35-bddf-685c2fa40e06" />
+
+
+---
+
+### Step 2: Total Sales KPI Card
+1. Right-click on `Sheet1` > select **New Measure** and define `Total Sales`:
+   ```dax
+   Total Sales = SUMX(Sheet1, Sheet1[Units Sold] * Sheet1[Price Per Unit])
+   ```
+2. Insert a **Card** visual and add `Total Sales`.
+3. Set decimal places from `Auto` to `0`.
+4. Validate dynamic interaction when clicking different months on the date slicer.
+
+<img width="1921" height="1017" alt="18" src="https://github.com/user-attachments/assets/64f5c30e-ba3b-4dfd-928c-4d99a013c5e3" />
+
+
+---
+
+### Step 3: Additional KPI Cards (Quantity, Transactions, Average)
+1. Create the remaining measures:
+   * `Total Quantity = SUM(Sheet1[Units Sold])`
+   * `Transactions = COUNTROWS(Sheet1)`
+   * `Average = AVERAGE(Sheet1[Price Per Unit])`
+2. Insert separate cards for each measure.
+3. In **Format visual**, customize:
+   * **Layout & Callout:** Configure value sizing, label names, and reference icons/images.
+   * **Shape & Accent bar:** Enable accent borders/bars to match the visual theme.
+
+<img width="1912" height="1017" alt="19" src="https://github.com/user-attachments/assets/cb8587b7-c616-4e9e-bc7a-fd432cd25c77" />
+
+
+---
+
+### Step 4: Geographic Sales Map
+1. Insert a background shape container.
+2. Add a **Map** visual:
+   * **Location:** `City`
+   * **Bubble size:** `Total Sales`
+3. In formatting settings:
+   * Enable **Category labels** and set font color to **Black**.
+   * Add a centered title (**Horizontal alignment: Center**).
+4. Resize and snap the map into the shape container.
+
+<img width="1917" height="957" alt="20" src="https://github.com/user-attachments/assets/f2a6eaf3-65ee-429b-9f5f-ebae15fa83e1" />
+
+---
+
+### Step 4: Sales Quantity Trend (Line Chart)
+1. Duplicate the shape container for alignment.
+2. Insert a **Line Chart**:
+   * **X-axis:** `Date Hierarchy (Month & Day)`
+   * **Y-axis:** `Total Quantity`
+3. Update chart title and format axes.
+4. Position and snap the visual inside the shape container.
+
+<img width="1918" height="975" alt="21" src="https://github.com/user-attachments/assets/3fbbda29-5ccb-4991-98f0-33a9ffc83bd6" />
+
+---
+
+### Step 5: Sales by Mobile Model (Column Chart)
+1. Add a container shape.
+2. Insert a **Clustered Column Chart**:
+   * **X-axis:** `Mobile Model`
+   * **Y-axis:** `Total Sales`
+3. Configure titles/subtitles and apply visual filters as needed.
+4. Go to **Effects** > toggle **Visual border** to **Off**.
+5. Align inside the shape.
+
+<img width="1918" height="968" alt="22" src="https://github.com/user-attachments/assets/c77b568c-9ff0-4d50-80a3-ddebf9aaa501" />
+
+
+---
+
+### Step 6: Transactions by Payment Method (Pie Chart)
+1. Add a container shape.
+2. Insert a **Pie Chart**:
+   * **Legend:** `Payment Method`
+   * **Values:** `Transactions`
+3. Adjust titles, subtitles, and data labels.
+4. Go to **Effects** > set **Visual border** to **Off**.
+5. Align inside the container.
+
+<img width="1918" height="937" alt="23" src="https://github.com/user-attachments/assets/c58251fc-6b87-474e-b9ce-abcba2704dbb" />
+
+---
+
+### Step 7: Customer Ratings Distribution (Funnel Chart)
+1. Add a container shape.
+2. Insert a **Funnel Chart**:
+   * **Category:** `Customer Ratings`
+   * **Values:** `Count of Customer Ratings`
+3. In **Format visual**:
+   * Turn **Title** and **Subtitle** `Off`.
+   * Set **Data labels > Values size** to `11`.
+   * Set **Conversion rate values size** to `11`.
+   * Go to **Effects** > turn **Visual border** `Off`.
+4. Position into shape.
+
+<img width="1916" height="945" alt="24" src="https://github.com/user-attachments/assets/51fb3373-b72d-49e3-85cf-163b970a0e43" />
+
+---
+
+### Step 8: Daily Revenue Trend (Area Chart)
+1. Add a container shape.
+2. Insert an **Area Chart**:
+   * **X-axis:** `Day Name`
+   * **Y-axis:** `Total Sales`
+3. In formatting settings:
+   * Turn **Title** and **Subtitle** `Off`.
+   * Set **X-axis values** font weight to **Bold**.
+   * Go to **Effects** > turn **Visual border** `Off`.
+4. Position into shape.
+
+<img width="1917" height="947" alt="25" src="https://github.com/user-attachments/assets/2121a4cb-f2ce-4e2e-8103-38ed63b49659" />
+
+---
+
+### Step 9: Brand Summary Table
+1. Add a container shape.
+2. Insert a **Table** visual:
+   * **Columns:** `Brand`, `Total Sales`, `Total Quantity`
+3. Format cell and header value sizing for readability.
+4. Go to **Effects** > turn **Visual border** `Off`.
+5. Snap inside the container.
+
+<img width="1918" height="976" alt="26" src="https://github.com/user-attachments/assets/d9cf590d-aded-4690-8289-8b46a5f8d6ee" />
+
+---
+
+### Step 10: Multi-Filter Dropdown Slicers
+1. Insert a **Slicer** and add field `Mobile Model`.
+2. In **Visual > Slicer settings > Options**, set style to **Dropdown**.
+3. Duplicate this slicer 3 times and update field bindings:
+   * **Slicer 1:** `Mobile Model`
+   * **Slicer 2:** `Payment Method`
+   * **Slicer 3:** `Brand`
+   * **Slicer 4:** `Day Name`
+4. Standardize font size, padding, and layout across the top filter bar.
+
+<img width="1913" height="972" alt="27" src="https://github.com/user-attachments/assets/942c46d9-e40c-4fef-abb3-4538fa5f0e01" />
+
+---
+
+### Step 11: Final Layout Polish & Alignment
+1. Align visual grids, card spacing, and containers using **Format > Align**.
+2. Group related visuals and containers for structured layer ordering.
+3. Test cross-filtering across cards, dropdowns, and charts.
+
+<img width="1321" height="740" alt="28 1" src="https://github.com/user-attachments/assets/a3267f15-1464-4aac-9869-ba7579d339e0" />
+
+---
+
+
 
