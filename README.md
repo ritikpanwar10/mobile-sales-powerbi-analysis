@@ -1,39 +1,58 @@
-# mobile-sales-powerbi-analysis
-Interactive Power BI dashboard analyzing smartphone sales performance, revenue trends, brand market share, and regional metrics using DAX and Power Query.
+# Mobile Sales Analytics Dashboard (Power BI)
+
+[![Power BI](https://img.shields.io/badge/Power_BI-Desktop-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
+[![DAX](https://img.shields.io/badge/DAX-Data_Analysis_Expressions-yellow?style=for-the-badge)](https://learn.microsoft.com/en-us/dax/)
+[![Power Query](https://img.shields.io/badge/Power_Query-ETL-blue?style=for-the-badge)](https://learn.microsoft.com/en-us/power-query/)
+
+An interactive, end-to-end sales analytics dashboard built in **Power BI Desktop**. This project analyzes smartphone sales performance, revenue trends, brand market share, and regional sales metrics using custom **DAX measures** and structured **Power Query ETL transformations**.
+
+---
+
+## 📋 Table of Contents
+
+- [Overview & Architecture](#-overview--architecture)
+- [Prerequisites & Assets](#-prerequisites--assets)
+- [Part 1: Data Transformation (Power Query)](#-part-1-data-transformation-power-query)
+- [Part 2: UI Canvas & Brand Theme Design](#-part-2-ui-canvas--brand-theme-design)
+- [Part 3: DAX Calculations & Visual Analytics](#-part-3-dax-calculations--visual-analytics)
+
+---
+
+## 📌 Overview & Architecture
+
 <img width="1321" height="740" alt="28 1" src="https://github.com/user-attachments/assets/8428eb0f-6916-45b5-852a-9a38e4729d06" />
 
-
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Part 1: Data Transformation (Power Query)](#part-1-data-transformation-power-query)
-  - [Key Goals](#key-goals)
-  - [Step-by-Step Guide](#%EF%B8%8F-step-by-step-transformation-process)
-- [Part 2: Dashboard UI Design](#part-2-dashboard-ui-design)
-  - [Key Goals](#key-goals-1)
-  - [Step-by-Step Guide](#step-by-step-implementation)
-## Prerequisites
-
-- **Power BI Desktop** installed
-- **Dataset:** Mobile Sales Data.xlsx
-- **Assets:** Brand logo file (e.g., vivo-logo.png)
-- **Tools:** Microsoft PowerPoint (for color picking)
-
-
-# Part 1: Data Transformation (Power Query)
-Clean split date attributes, combine them into a unified date column, and standardize day names 
+This dashboard provides executive-level business intelligence covering:
+- **Revenue & Volume KPIs:** Dynamic cards tracking gross sales, total units sold, transaction count, and average unit price.
+- **Geographic Distribution:** Interactive bubble map tracking sales across key cities.
+- **Customer Insights:** Ratings conversion funnel and preferred payment breakdown.
+- **Trend & Performance Analysis:** Daily/monthly sales trajectories and brand-wise performance breakdowns.
 
 ---
+
+## 🧰 Prerequisites & Assets
+
+Before building or running the project, ensure you have the following:
+
+- **Software:** [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/) (Latest Version)
+- **Design Utility:** Microsoft PowerPoint (or any Eyedropper color picker utility)
+- **Dataset:** `Mobile Sales Data.xlsx` (contains sales records with split date columns)
+- **Assets:** Brand logo image (e.g., `vivo-logo.png`)
+
+---
+
+## 🔄 Part 1: Data Transformation (Power Query)
+
 ### Key Goals
-- Import Sheet1 from the raw Excel workbook.
-- Merge separated Day, Month, and Year values into a single Date column.
-- Normalize weekday names into full spelling (e.g., Saturday, Sunday)
+- Ingest raw sales transactions from Excel.
+- Combine fragmented date attributes (`Day`, `Month`, `Year`) into an atomic ISO/standard date column.
+- Normalize abbreviated weekday strings (e.g., `Mon`, `Tue`) into consistent, full-day names (`Monday`, `Tuesday`).
 
 ---
 
-## 🛠️ Step-by-Step Transformation Process
+### Step-by-Step ETL Process
 
-### Step 1: Connect to the Excel Data Source
+#### Step 1.1: Connect to the Excel Data Source
 1. Open Power BI Desktop and select **Get Data** > **Excel workbook**.
 2. Browse to your file path (e.g., `Mobile Sales Data.xlsx`) and click **Next**.
 
@@ -41,7 +60,7 @@ Clean split date attributes, combine them into a unified date column, and standa
 
 ---
 
-### Step 2: Select Sheet and Launch Power Query
+#### Step 1.2: Select Sheet and Launch Power Query
 1. In the **Choose data** navigator, select **Sheet1**.
 2. Review the data preview: notice the split `Day`, `Month`, `Year` values and non-standardized values in `Day Name` (e.g., `Sat`, `Sun`, `Mon` alongside full names).
 3. Click **Transform data** to open the Power Query Editor.
@@ -50,7 +69,7 @@ Clean split date attributes, combine them into a unified date column, and standa
 
 ---
 
-### Step 3: Combine Date Columns
+#### Step 1.3: Combine Date Columns
 1. Select the `Day`, `Month`, and `Year` columns and change their data types from whole numbers to **Text (`ABC`)**.
 2. Navigate to the **Add Column** tab in the ribbon and click **Custom Column**.
 3. Enter the following formula to build a single date string:
@@ -67,7 +86,7 @@ Clean split date attributes, combine them into a unified date column, and standa
 
 ---
 
-### Step 4: Reorder and Set Date Data Type
+#### Step 1.4: Reorder and Set Date Data Type
 
 1. Drag the newly created custom column to place it where the original `Day`, `Month`, and `Year` columns were positioned.
 
@@ -82,7 +101,7 @@ Clean split date attributes, combine them into a unified date column, and standa
 
 ---
 
-### Step 5: Clean Columns and Generate Standard Day Names
+#### Step 1.5: Clean Columns and Generate Standard Day Names
 
 1. Select and remove the redundant columns: `Day`, `Month`, `Year`, and the original inconsistent `Day Name` column.
 
@@ -101,7 +120,7 @@ Clean split date attributes, combine them into a unified date column, and standa
 
 ---
 
-### Step 6: Close & Apply
+#### Step 6: Close & Apply
 
 1. Reorder columns as needed to match your desired structure.
 
@@ -112,16 +131,14 @@ Clean split date attributes, combine them into a unified date column, and standa
 
 ---
 
-## 📂 Output Data Structure
+### 📂 Output Data Structure
 
 <img width="1913" height="1016" alt="image" src="https://github.com/user-attachments/assets/da0883b6-1e9b-419f-9082-93db9c259bff" />
 
 ---
 
-# Part 2: Dashboard UI Design
-Set up brand styling by extracting brand colors, setting the canvas background, and creating card containers. 
+## 🎨 Part 2: UI Canvas & Brand Theme Design
 
---- 
 ### Key Goals
 
 * Logo se exact brand color sample karke uska HEX code extract karna.
@@ -130,9 +147,9 @@ Set up brand styling by extracting brand colors, setting the canvas background, 
 
 ---
 
-## Step-by-Step Implementation
+### Step-by-Step UI Setup
 
-### Step 1: Insert Logo / Image into Power BI
+#### Step 2.1: Insert Logo / Image into Power BI
 
 1. Open your Power BI report and go to the **Insert** tab in the top ribbon.
 2. In the **Elements** group, select **Image**.
@@ -147,7 +164,7 @@ Set up brand styling by extracting brand colors, setting the canvas background, 
 
 ---
 
-### Step 2: Extract Brand Hex Code using PowerPoint
+#### Step 2.2: Extract Brand Hex Code using PowerPoint
 
 To match the dashboard's background color precisely with the logo, extract the exact HEX code:
 
@@ -170,7 +187,7 @@ To match the dashboard's background color precisely with the logo, extract the e
 
 ---
 
-### Step 3: Apply the Brand Color to Power BI Canvas
+#### Step 2.3: Apply the Brand Color to Power BI Canvas
 
 1. Return to **Power BI Desktop**.
 2. Deselect all visuals by clicking an empty area on the canvas.
@@ -187,7 +204,7 @@ To match the dashboard's background color precisely with the logo, extract the e
 
 ---
 
-### Step 4: Add a Rounded Card Container Behind the Logo
+#### Step 2.4: Add a Rounded Card Container Behind the Logo
 
 1. Go to the **Insert** tab > **Shapes** > choose **Rounded Rectangle**.
 2. Configure the shape styling in the **Format shape** pane:
@@ -204,38 +221,38 @@ To match the dashboard's background color precisely with the logo, extract the e
 
 ---
 
-# Part3: Mobile Sales Analytics Dashboard (Power BI)
+## 📊 Part 3: DAX Calculations & Visual Analytics
 
-An interactive, end-to-end sales analytics dashboard created in **Power BI Desktop**. This dashboard tracks key performance indicators (KPIs), geographical sales performance, trend analysis over time, payment preferences, and customer rating distributions for mobile device sales.
+### 🛠️ Core DAX Measures
+
+Create these business measures inside `Sheet1` before configuring visual components:
+
+```dax
+// Total Gross Revenue
+Total Sales = 
+SUMX(
+    Sheet1, 
+    Sheet1[Units Sold] * Sheet1[Price Per Unit]
+)
+
+// Total Units Sold
+Total Quantity = 
+SUM(Sheet1[Units Sold])
+
+// Order / Transaction Count
+Transactions = 
+COUNTROWS(Sheet1)
+
+// Average Price Per Sold Unit
+Average = 
+AVERAGE(Sheet1[Price Per Unit])
+```
 
 ---
 
-## 🛠️ Key Measures (DAX)
+### 🚀 Visual Assembly Guide
 
-The following custom DAX measures were built to drive the KPI cards and chart visuals:
-
-* **Total Sales:**
-  ```dax
-  Total Sales = SUMX(Sheet1, Sheet1[Units Sold] * Sheet1[Price Per Unit])
-  ```
-* **Total Quantity:**
-  ```dax
-  Total Quantity = SUM(Sheet1[Units Sold])
-  ```
-* **Transactions:**
-  ```dax
-  Transactions = COUNTROWS(Sheet1)
-  ```
-* **Average Price:**
-  ```dax
-  Average = AVERAGE(Sheet1[Price Per Unit])
-  ```
-
----
-
-## 🚀 Step-by-Step Implementation Guide
-
-### Step 1: Date Hierarchy Slicer (Month Tiles)
+#### Step 3.1: Date Hierarchy Slicer (Month Tiles)
 1. Add a background shape container.
 2. Insert a **Slicer** visual and set field to `Date > Date Hierarchy > Month`.
 3. In **Format visual**:
@@ -248,7 +265,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 2: Total Sales KPI Card
+#### Step 3.2: Total Sales KPI Card
 1. Right-click on `Sheet1` > select **New Measure** and define `Total Sales`:
    ```dax
    Total Sales = SUMX(Sheet1, Sheet1[Units Sold] * Sheet1[Price Per Unit])
@@ -262,7 +279,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 3: Additional KPI Cards (Quantity, Transactions, Average)
+#### Step 3.3: Additional KPI Cards (Quantity, Transactions, Average)
 1. Create the remaining measures:
    * `Total Quantity = SUM(Sheet1[Units Sold])`
    * `Transactions = COUNTROWS(Sheet1)`
@@ -277,7 +294,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 4: Geographic Sales Map
+#### Step 3.4: Geographic Sales Map
 1. Insert a background shape container.
 2. Add a **Map** visual:
    * **Location:** `City`
@@ -291,7 +308,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 4: Sales Quantity Trend (Line Chart)
+#### Step 3.5: Sales Quantity Trend (Line Chart)
 1. Duplicate the shape container for alignment.
 2. Insert a **Line Chart**:
    * **X-axis:** `Date Hierarchy (Month & Day)`
@@ -303,7 +320,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 5: Sales by Mobile Model (Column Chart)
+#### Step 3.6: Sales by Mobile Model (Column Chart)
 1. Add a container shape.
 2. Insert a **Clustered Column Chart**:
    * **X-axis:** `Mobile Model`
@@ -317,7 +334,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 6: Transactions by Payment Method (Pie Chart)
+#### Step 3.7: Transactions by Payment Method (Pie Chart)
 1. Add a container shape.
 2. Insert a **Pie Chart**:
    * **Legend:** `Payment Method`
@@ -330,7 +347,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 7: Customer Ratings Distribution (Funnel Chart)
+#### Step 3.8: Customer Ratings Distribution (Funnel Chart)
 1. Add a container shape.
 2. Insert a **Funnel Chart**:
    * **Category:** `Customer Ratings`
@@ -346,7 +363,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 8: Daily Revenue Trend (Area Chart)
+#### Step 3.9: Daily Revenue Trend (Area Chart)
 1. Add a container shape.
 2. Insert an **Area Chart**:
    * **X-axis:** `Day Name`
@@ -361,7 +378,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 9: Brand Summary Table
+#### Step 3.10: Brand Summary Table
 1. Add a container shape.
 2. Insert a **Table** visual:
    * **Columns:** `Brand`, `Total Sales`, `Total Quantity`
@@ -373,7 +390,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 10: Multi-Filter Dropdown Slicers
+#### Step 3.11: Multi-Filter Dropdown Slicers
 1. Insert a **Slicer** and add field `Mobile Model`.
 2. In **Visual > Slicer settings > Options**, set style to **Dropdown**.
 3. Duplicate this slicer 3 times and update field bindings:
@@ -387,7 +404,7 @@ The following custom DAX measures were built to drive the KPI cards and chart vi
 
 ---
 
-### Step 11: Final Layout Polish & Alignment
+#### Step 3.12: Final Layout Polish & Alignment
 1. Align visual grids, card spacing, and containers using **Format > Align**.
 2. Group related visuals and containers for structured layer ordering.
 3. Test cross-filtering across cards, dropdowns, and charts.
