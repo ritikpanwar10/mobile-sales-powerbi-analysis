@@ -400,7 +400,7 @@ AVERAGE(Sheet1[Price Per Unit])
    * **Slicer 4:** `Day Name`
 4. Standardize font size, padding, and layout across the top filter bar.
 
-<img width="1913" height="972" alt="27" src="https://github.com/user-attachments/assets/942c46d9-e40c-4fef-abb3-4538fa5f0e01" />
+![Dropdown Filter Bar](https://github.com/user-attachments/assets/942c46d9-e40c-4fef-abb3-4538fa5f0e01)
 
 ---
 
