@@ -37,7 +37,7 @@ Before building or running the project, ensure you have the following:
 - **Software:** [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/) (Latest Version)
 - **Design Utility:** Microsoft PowerPoint (or any Eyedropper color picker utility)
 - **Dataset:** `Mobile Sales Data.xlsx` (contains sales records with split date columns)
-- **Assets:** Brand logo image (e.g., `vivo-logo.png`)
+- **Assets:** Logo image (e.g., `vivo-logo.png`)
 
 ---
 
